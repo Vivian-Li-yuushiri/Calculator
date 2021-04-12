@@ -19,5 +19,7 @@ while (true) {
         arithmetic.runCalculateLoop();
     } else if (calcMode === VOWEL_COUNTING_MODE) {
         vowelCount.runVowelCountLoop();
+    } else {
+        throw new Error('This mode is not supported.');
     }
 }
