@@ -8,24 +8,22 @@ function getNumArray(iters) {
     return numArray;
 }
 function runCalculations(op, numArray) {
-    var total = numArray[0];
-    for (i = 1; i < numArray.length; i++){
-        switch (op) {
-            case "+":
-                total += numArray[i];
-                break;
-            case "-":
-                total -= numArray[i];
-                break;
-            case "*":
-                total *= numArray[i];
-                break;
-            case "/":
-                total /= numArray[i];
-                break;
-            default:
-                console.log('Something went wrong and the specified operator is not recognized.');
-        }
+    var total;
+    switch (op) {
+        case "+":
+            total = numArray.slice(1).reduce(function(accum, val) {return accum + val;}, numArray[0]);
+            break;
+        case "-":
+            total = numArray.slice(1).reduce(function(accum, val) {return accum - val;}, numArray[0]);
+            break;
+        case "*":
+            total = numArray.slice(1).reduce(function(accum, val) {return accum * val;}, numArray[0]);
+            break;
+        case "/":
+            total = numArray.slice(1).filter(function(item) {return item !== 0;}).reduce(function(accum, val) {return accum / val;}, numArray[0]);
+            break;
+        default:
+            console.log('Something went wrong and the specified operator is not recognized.');
     }
     return total;
 }
