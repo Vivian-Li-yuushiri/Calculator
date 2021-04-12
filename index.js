@@ -9,10 +9,10 @@ function printWelcomeMessage() {
 }
 function getCalculationMode() {
     console.log(`Which calculator mode do you want?
-        1) Arithmetic
-        2) Vowel counting`);
+        ${ARITHMETIC_MODE}) Arithmetic
+        ${VOWEL_COUNTING_MODE}) Vowel counting`);
     const calcMode = readline.prompt();
-    while (!["1", "2"].includes(calcMode)) {
+    while (![ARITHMETIC_MODE, VOWEL_COUNTING_MODE].includes(calcMode)) {
         console.log('That is not a valid mode. Try again: ');
         calcMode = readline.prompt();
     }
